@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Start</title>
+    <link rel="stylesheet" href="../../assets/styling.css">
+    <link rel="stylesheet" href="../../assets/cyborg.css">
+</head>
+
+<body style="overflow-x: hidden; ">
+    <div class="row">
+        <div class="col" style="overflow-y:scroll;overflow-x:hidden;">
+            <div class="row">
+                <div *ngIf="left == 'log'" style="margin-left: 45px; overflow:auto;max-height: 450px" class="col-lg-2 cardbox">
+                    <app-loginsignup></app-loginsignup>
+                </div>
+
+                <div  style="margin-left: 8px;" class="col-lg-7 cardbox">
+                        <div class="row" *ngIf="middle == 'post'"
+                        style="overflow-y: auto;max-height: 450px">
+                        <app-allposts></app-allposts>
+                    </div>
+                </div>
+
+                <div style="margin-left: 8px;" class="col-lg-2 cardbox">
+                    <div *ngIf="right == 'post'" class="row">
+                        <app-allposts></app-allposts>
+                    </div>
+                    <div *ngIf="right == 'thread'" class="row">
+                        <app-thread></app-thread>
+                    </div>
+                    <div *ngIf="middle == 'post'" class="row" style="overflow-y: auto;max-height: 350px;margin-top: 8px">
+                        <app-loginsignup></app-loginsignup>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

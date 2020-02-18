@@ -1,0 +1,98 @@
+<head>
+    <meta charset="ISO-8859-1">
+    <link rel="stylesheet" href="../../assets/styling.css">
+</head>
+<div *ngIf="loggedin == 'false'" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Hey Gamer ! </strong>Log in to Comment , Reply and to Add Friends
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<app-navbar></app-navbar>
+
+<body style="overflow-x: hidden;margin-top: 10px;">
+    <div class="row">
+        <div class="col-lg-2 cardbox left" id="info">
+            
+            
+
+
+        </div>
+        <div class="col-lg-7 cardbox middle">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" id="home" data-toggle="tab" href="#allposts">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf="loggedin == 'true'"  class="nav-link" data-toggle="tab" href="#profile">Your
+                        Posts</a>
+                    <a *ngIf="loggedin == 'false'" class="nav-link disabled" data-toggle="tab" href="#profile">Your
+                        Posts</a>
+                </li>
+                <li class="nav-item dropdown" style="position: absolute; right: 140px;">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                        aria-expanded="false">Sort By </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" (click)="popular()" data-toggle="tab" href="#allposts">Popularity</a>
+                        <a class="dropdown-item" (click)="newest()" data-toggle="tab" href="#allposts">Newest First</a>
+                    </div>
+                </li>
+
+                <span style="position: absolute; right: 5px;">
+                    <button type="button" *ngIf="loggedin == 'true'" onclick="openmodal()"
+                        class="btn btn-outline-info">+
+                        New Post</button>
+                    <button type="button" *ngIf="loggedin == 'false'" onclick="openmodal()"
+                        class="btn btn-outline-info disabled">+
+                        New Post</button>
+                </span>
+            </ul>
+
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade show active" id="allposts">
+                    <div class="post" *ngFor="let p of posts" style="width: 100%;">
+                        <table style="padding: 5px">
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 5px;padding-right: 50px;"> 
+                                        <span class="badge badge-primary">Score</span> 
+                                        <br>{{p.score}} </td>
+                                    <td>
+                                        <h4>{{p.postinfo}}</h4>
+                                        <span *ngFor="let tag of p.tags"
+                                            (click)="tagname(tag)"
+                                            class="badge badge-pill badge-info tags">{{tag}}</span>
+                                    </td>     
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                        <div *ngIf="p.voted == 'true'" > voted </div>
+                        <div *ngIf="p.voted == 'false'" >Not voted </div>
+                        <div style="margin-left: 20px;">
+                                <span class="vote"><button class=" btn btn-outline-success btn-sm"> &#11165; </button>&nbsp;&nbsp;</span>
+                                <span class="badge badge-secondary">{{p.score}}</span>
+                                <span class="vote">&nbsp;&nbsp;<button class=" btn btn-outline-danger  btn-sm"> &#11167; </button></span>
+                        </div>
+                        <div style="text-align: right;"> Posted on : {{p.datetime}} </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-lg-2 cardbox right">
+            <div>
+                <form action="search" method="post">
+                        <div class="form-group">
+                             <input
+                                type="text" class="form-control" style="margin-bottom: 3px;" name="name"
+                                placeholder="Search Name">
+                            <div align="center">
+                                <button type="submit" class="btn btn-secondary">Search</button>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</body>

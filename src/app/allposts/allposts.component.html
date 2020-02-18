@@ -1,0 +1,11 @@
+<div style="text-align: center">Posts</div>
+
+<table border="1" style="padding: 5px">
+    <tbody style="border: 1px solid white;">
+        <tr *ngFor="let p of posts">
+            <td>{{p.id}}</td>
+            <td>{{p.postinfo}}</td>
+            <td><button class="btn btn-primary" (click)="viewpost(p.id)" routerLink="/manage"> View Thread</button></td>
+        </tr>
+    </tbody>
+</table>

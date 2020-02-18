@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Login / Sign Up</title>
+    <link rel="stylesheet" href="../../assets/styling.css">
+</head>
+<meta charset="ISO-8859-1">
+<title>Login/SignUp</title>
+
+<body style="overflow: auto;">
+    <div class="container">
+        <div style="text-align: center; margin-top: 20PX; font-weight: bold;color: white;">WELCOME
+            TO GamerPath
+        </div>
+        <div class="row" style="margin: 5%">
+            <div class="col-md-4 offset-1 cardbox">
+                <div style="text-align: center; font-weight: bold;  color: rgb(10, 180, 10); font-size: 25px">Login
+                </div>
+
+                <form class="loginform" novalidate>
+
+                    <div class="form-group">
+                        <label>Email address</label> <input type="email" class="form-control form-control-sm validate"
+                            name="loginemail" placeholder="Enter email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label> <input type="password" class="form-control form-control-sm validate"
+                            name="loginpassword" placeholder="Password">
+                    </div>
+                    <div align="center" style="padding-top: 30px">
+                        <button type="submit" class="btn btn-secondary">Login</button>
+                    </div>
+                    <div style="text-align: center; margin-top: 20PX;">New User?
+                        Sign Up</div>
+                </form>
+            </div>
+
+
+            <div class="col-md-4 offset-2 cardbox">
+
+                <form class="signupform" novalidate>
+                    <div style="text-align: center; font-weight: bold; color: rgb(10, 180, 10); font-size: 25px">Sign
+                        Up
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gamer Tag</label> <input type="text" class="form-control form-control-sm validate"
+                            name="gamertag" placeholder="Enter Gamer Tag">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name</label> <input type="text" class="form-control form-control-sm validate" name="name"
+                            placeholder="Enter Full Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label> <input type="email" class="form-control form-control-sm validate"
+                            name="email" placeholder="Enter email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label> <input type="password" class="form-control form-control-sm validate"
+                            name="password" id="idpassword" placeholder="Password">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Confirm Password</label> <input type="password"
+                            class="form-control form-control-sm validate" name="confirmpassword"
+                            placeholder="Confirm Password">
+                    </div>
+
+                    <div class="custom-control custom-radio">
+                        <input id="male" type="radio" class="custom-control-input" value="male"
+                            (change)="change('male')" name="gender">
+                        <label class="custom-control-label" for="male">Male</label>
+                    </div>
+
+                    <div class="custom-control custom-radio">
+                        <input id="female" type="radio" class="custom-control-input" (change)="change('female')"
+                            name="gender">
+                        <label class="custom-control-label" for="female">Female</label>
+                    </div>
+
+                    <div align="center" style="padding-top: 30px">
+                        <button class="btn btn-secondary" (click)="cli()">Sign
+                            Up and Login
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+
+</html>
